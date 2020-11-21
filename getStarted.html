@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SnowJS | getStarted</title>
+    <script src="../dist/snow.js"></script>
+    <link rel="stylesheet" href="./index.css" />
+  </head>
+  <body>
+    <div class="snow-area"></div>
+    <script>
+      const snowjs = new SnowJS({
+        el: ".snow-area", // selector for snowy area
+      });
+      snowjs.start(); // start snow effect
+    </script>
+  </body>
+</html>
