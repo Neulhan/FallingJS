@@ -144,6 +144,7 @@ var _default = /*#__PURE__*/function () {
   }, {
     key: "start",
     value: function start() {
+      this.snowList = [];
       requestAnimationFrame(this.animate.bind(this));
     }
   }, {

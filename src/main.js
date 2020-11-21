@@ -35,6 +35,7 @@ export default class {
   }
 
   start() {
+    this.snowList = [];
     requestAnimationFrame(this.animate.bind(this));
   }
   addFlake() {
