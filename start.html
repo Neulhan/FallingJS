@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SnowyJS | getStarted</title>
+    <script src="./dist/snow.js"></script>
+    <style>
+      .snow-area {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: #1d1e38;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="snow-area"></div>
+    <script>
+      const snowjs = new SnowJS({
+        el: ".snow-area",
+      });
+      snowjs.start();
+    </script>
+  </body>
+</html>

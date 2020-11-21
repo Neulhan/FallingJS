@@ -1,19 +1,19 @@
-# SnowJS
+# SnowyJS
 
-<img src="https://raw.githubusercontent.com/Neulhan/snowjs/master/example/logo.svg" width="300"/>
+<img src="https://raw.githubusercontent.com/Neulhan/snowyjs/master/example/logo.svg" width="300"/>
 
-SnowJS will help you use the beautiful snowing effect very simply!
+SnowyJS will help you use the beautiful snowing effect very simply!
 
 ## Preview
 
-<img src="https://raw.githubusercontent.com/Neulhan/snowjs/master/example/preview.png" />
+<img src="https://raw.githubusercontent.com/Neulhan/snowyjs/master/example/preview.png" />
 
 ## Get Started
 
 ```html
 <div class="snow-area"></div>
 
-<script src="pkg"></script>
+<script src="https://raw.githubusercontent.com/Neulhan/snowyjs/master/dist/bundle.js"></script>
 <script>
   const snowjs = new SnowJS({
     el: ".snow-area",

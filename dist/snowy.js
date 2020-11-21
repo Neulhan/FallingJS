@@ -68,25 +68,25 @@ __webpack_require__(/*! regenerator-runtime/runtime */ "./node_modules/regenerat
 
 /***/ }),
 
-/***/ "./src/js/index.js":
-/*!*************************!*\
-  !*** ./src/js/index.js ***!
-  \*************************/
+/***/ "./src/index.js":
+/*!**********************!*\
+  !*** ./src/index.js ***!
+  \**********************/
 /*! unknown exports (runtime-defined) */
 /*! runtime requirements: __webpack_require__, module */
 /*! CommonJS bailout: module.exports is used directly at 3:0-14 */
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-var SnowJS = __webpack_require__(/*! ./main.js */ "./src/js/main.js").default;
+var SnowJS = __webpack_require__(/*! ./main.js */ "./src/main.js").default;
 
-module.exports = SnowJS;
+module.exports = SnowJS; // export default SnowJS;
 
 /***/ }),
 
-/***/ "./src/js/main.js":
-/*!************************!*\
-  !*** ./src/js/main.js ***!
-  \************************/
+/***/ "./src/main.js":
+/*!*********************!*\
+  !*** ./src/main.js ***!
+  \*********************/
 /*! namespace exports */
 /*! export default [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -98,7 +98,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => /* binding */ _default
 /* harmony export */ });
-/* harmony import */ var _snowFlake_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./snowFlake.js */ "./src/js/snowFlake.js");
+/* harmony import */ var _snowFlake_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./snowFlake.js */ "./src/snowFlake.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -111,6 +111,7 @@ var _default = /*#__PURE__*/function () {
   function _default(config) {
     _classCallCheck(this, _default);
 
+    this.config = {};
     this.set(config);
     this.canvas = document.createElement("canvas");
     this.ctx = this.canvas.getContext("2d");
@@ -128,17 +129,22 @@ var _default = /*#__PURE__*/function () {
       config.frequency = config.frequency ? config.frequency : 50;
       config.radiusRange = config.radiusRange ? config.radiusRange : [0.5, 3];
       config.speedRange = config.speedRange ? config.speedRange : [0.5, 3];
-      config.angle = config.angle ? config.angle : 0;
-      config.colors = config.colors ? config.colors : ["#fff"];
+      config.angleRange = config.angleRange ? config.angleRange : [-0.1, 0.1];
+      config.colors = config.colors ? typeof config.colors === "string" ? JSON.parse(config.colors) : config.colors : ["#fff"];
       config.type = config.type ? config.type : "square";
       config.text = config.text ? config.text : "*";
+
+      if (this.config.frequency !== config.frequency) {
+        clearInterval(this.loop);
+        this.loop = setInterval(this.addFlake.bind(this), config.frequency * 1);
+      }
+
       this.config = config;
     }
   }, {
     key: "start",
     value: function start() {
       requestAnimationFrame(this.animate.bind(this));
-      this.loop = setInterval(this.addFlake.bind(this), this.config.frequency);
     }
   }, {
     key: "addFlake",
@@ -148,8 +154,8 @@ var _default = /*#__PURE__*/function () {
   }, {
     key: "resize",
     value: function resize() {
-      this.stageWidth = document.body.clientWidth;
-      this.stageHeight = document.body.clientHeight;
+      this.stageWidth = this.elem.clientWidth;
+      this.stageHeight = this.elem.clientHeight;
       this.canvas.width = this.stageWidth * 2;
       this.canvas.height = this.stageHeight * 2;
       this.ctx.scale(2, 2);
@@ -174,10 +180,10 @@ var _default = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./src/js/snowFlake.js":
-/*!*****************************!*\
-  !*** ./src/js/snowFlake.js ***!
-  \*****************************/
+/***/ "./src/snowFlake.js":
+/*!**************************!*\
+  !*** ./src/snowFlake.js ***!
+  \**************************/
 /*! namespace exports */
 /*! export SnowFlake [provided] [no usage info] [missing usage info prevents renaming] */
 /*! other exports [not provided] [no usage info] */
@@ -189,7 +195,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "SnowFlake": () => /* binding */ SnowFlake
 /* harmony export */ });
-/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ "./src/js/utils.js");
+/* harmony import */ var _utils_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./utils.js */ "./src/utils.js");
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -204,7 +210,7 @@ var SnowFlake = /*#__PURE__*/function () {
     this.x = (0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.getRandomFloat)(0, stageWidth);
     this.y = 0;
     this.speed = (0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.getRandomFloat)(config.speedRange[0], config.speedRange[1]);
-    this.angle = config.angle;
+    this.angle = (0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.getRandomFloat)(config.angleRange[0], config.angleRange[1]);
     this.color = config.colors[(0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.getRandomInt)(0, config.colors.length)];
     this.radius = (0,_utils_js__WEBPACK_IMPORTED_MODULE_0__.getRandomFloat)(config.radiusRange[0], config.radiusRange[1]);
     this.type = config.type;
@@ -250,10 +256,10 @@ var SnowFlake = /*#__PURE__*/function () {
 
 /***/ }),
 
-/***/ "./src/js/utils.js":
-/*!*************************!*\
-  !*** ./src/js/utils.js ***!
-  \*************************/
+/***/ "./src/utils.js":
+/*!**********************!*\
+  !*** ./src/utils.js ***!
+  \**********************/
 /*! namespace exports */
 /*! export getRandomFloat [provided] [no usage info] [missing usage info prevents renaming] */
 /*! export getRandomInt [provided] [no usage info] [missing usage info prevents renaming] */
@@ -273,9 +279,7 @@ var getRandomInt = function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 var getRandomFloat = function getRandomFloat(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.random() * (max - min + 1) + min;
+  return Math.random() * (max - min) + min;
 };
 
 /***/ }),
@@ -10931,7 +10935,7 @@ try {
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	__webpack_require__("./node_modules/@babel/polyfill/lib/index.js");
-/******/ 	return __webpack_require__("./src/js/index.js");
+/******/ 	return __webpack_require__("./src/index.js");
 /******/ })()
 ;
-//# sourceMappingURL=bundle.js.map
+//# sourceMappingURL=snowy.js.map

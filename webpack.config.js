@@ -2,10 +2,10 @@ const path = require("path");
 
 module.exports = {
   // enntry file
-  entry: ["@babel/polyfill", "./src/js/index.js"],
+  entry: ["@babel/polyfill", "./src/index.js"],
   // 컴파일 + 번들링된 js 파일이 저장될 경로와 이름 지정
   output: {
-    filename: "bundle.js",
+    filename: "snowy.js",
     path: path.resolve(__dirname, "dist"),
     libraryTarget: "var",
     library: "SnowJS",
@@ -13,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        include: [path.resolve(__dirname, "src/js")],
+        include: [path.resolve(__dirname, "src")],
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",

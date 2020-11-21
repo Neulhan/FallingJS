@@ -2,6 +2,7 @@ import { SnowFlake } from "./snowFlake.js";
 
 export default class {
   constructor(config) {
+    this.config = {};
     this.set(config);
     this.canvas = document.createElement("canvas");
     this.ctx = this.canvas.getContext("2d");
@@ -13,19 +14,28 @@ export default class {
     this.resize();
     window.addEventListener("resize", this.resize.bind(this));
   }
+
   set(config) {
     config.frequency = config.frequency ? config.frequency : 50;
     config.radiusRange = config.radiusRange ? config.radiusRange : [0.5, 3];
     config.speedRange = config.speedRange ? config.speedRange : [0.5, 3];
-    config.angle = config.angle ? config.angle : 0;
-    config.colors = config.colors ? config.colors : ["#fff"];
+    config.angleRange = config.angleRange ? config.angleRange : [-0.1, 0.1];
+    config.colors = config.colors
+      ? typeof config.colors === "string"
+        ? JSON.parse(config.colors)
+        : config.colors
+      : ["#fff"];
     config.type = config.type ? config.type : "square";
     config.text = config.text ? config.text : "*";
+    if (this.config.frequency !== config.frequency) {
+      clearInterval(this.loop);
+      this.loop = setInterval(this.addFlake.bind(this), config.frequency * 1);
+    }
     this.config = config;
   }
+
   start() {
     requestAnimationFrame(this.animate.bind(this));
-    this.loop = setInterval(this.addFlake.bind(this), this.config.frequency);
   }
   addFlake() {
     this.snowList.push(
@@ -33,8 +43,8 @@ export default class {
     );
   }
   resize() {
-    this.stageWidth = document.body.clientWidth;
-    this.stageHeight = document.body.clientHeight;
+    this.stageWidth = this.elem.clientWidth;
+    this.stageHeight = this.elem.clientHeight;
     this.canvas.width = this.stageWidth * 2;
     this.canvas.height = this.stageHeight * 2;
     this.ctx.scale(2, 2);

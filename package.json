@@ -1,20 +1,24 @@
 {
-  "name": "@neulhan/snowjs",
-  "version": "0.0.2",
-  "description": "SnowJS will help you use the beautiful snowing effect very simply!",
-  "main": "dist/bundle.js",
-  "files": "dist/bundle.js",
+  "name": "snowyjs",
+  "version": "0.0.1",
+  "description": "SnowyJS will help you use the beautiful snowing effect very simply!",
+  "main": "src/index.js",
+  "files": "src/*",
   "scripts": {
-    "build": "webpack -w"
+    "build": "webpack -w",
+    "predeploy": "webpack",
+    "deploy": "gh-pages -d example"
   },
   "keywords": [
     "snowing",
+    "snowy",
     "snow",
     "canvas"
   ],
+  "homepage": "https://Neulhan.github.io/snowyjs/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/Neulhan/snowjs.git"
+    "url": "https://github.com/Neulhan/snowyjs.git"
   },
   "author": "Neulhan",
   "license": "MIT",
@@ -23,6 +27,7 @@
     "@babel/core": "^7.12.3",
     "@babel/preset-env": "^7.12.1",
     "babel-loader": "^8.2.1",
+    "gh-pages": "^3.1.0",
     "webpack": "^5.6.0",
     "webpack-cli": "^4.2.0"
   },
@@ -30,9 +35,6 @@
     "@babel/polyfill": "^7.12.1"
   },
   "bugs": {
-    "url": "https://github.com/Neulhan/snowjs/issues"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
+    "url": "https://github.com/Neulhan/snowyjs/issues"
   }
 }

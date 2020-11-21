@@ -5,7 +5,7 @@ export class SnowFlake {
     this.x = getRandomFloat(0, stageWidth);
     this.y = 0;
     this.speed = getRandomFloat(config.speedRange[0], config.speedRange[1]);
-    this.angle = config.angle;
+    this.angle = getRandomFloat(config.angleRange[0], config.angleRange[1]);
     this.color = config.colors[getRandomInt(0, config.colors.length)];
     this.radius = getRandomFloat(config.radiusRange[0], config.radiusRange[1]);
     this.type = config.type;
