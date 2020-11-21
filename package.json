@@ -1,14 +1,23 @@
 {
-  "name": "es6-project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "@neulhan/snowjs",
+  "version": "0.0.2",
+  "description": "SnowJS will help you use the beautiful snowing effect very simply!",
+  "main": "dist/bundle.js",
+  "files": "dist/bundle.js",
   "scripts": {
     "build": "webpack -w"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "snowing",
+    "snow",
+    "canvas"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Neulhan/snowjs.git"
+  },
+  "author": "Neulhan",
+  "license": "MIT",
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",
@@ -19,5 +28,11 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1"
+  },
+  "bugs": {
+    "url": "https://github.com/Neulhan/snowjs/issues"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
   }
 }

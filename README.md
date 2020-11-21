@@ -1,12 +1,12 @@
 # SnowJS
 
-<img src="./example/logo.svg" width="300"/>
+<img src="https://raw.githubusercontent.com/Neulhan/snowjs/master/example/logo.svg" width="300"/>
 
 SnowJS will help you use the beautiful snowing effect very simply!
 
 ## Preview
 
-<img src="./example/preview.png" />
+<img src="https://raw.githubusercontent.com/Neulhan/snowjs/master/example/preview.png" />
 
 ## Get Started
 
@@ -37,4 +37,4 @@ SnowJS will help you use the beautiful snowing effect very simply!
 
 - Add config props `image` to custom snowflake image
 - Add event hooks
-- NPM package register
+- Refactoring frequency process to `requestAnimationFrame`

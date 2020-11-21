@@ -1,5 +1,4 @@
 import { getRandomFloat, getRandomInt } from "./utils.js";
-import { snowFlake1 } from "./const.js";
 
 export class SnowFlake {
   constructor(stageWidth, stageHeight, config) {
