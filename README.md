@@ -1,6 +1,6 @@
 # SnowyJS
 
-<img src="https://raw.githubusercontent.com/Neulhan/snowyjs/master/example/logo.svg" width="300"/>
+<img width="1000" src="https://raw.githubusercontent.com/Neulhan/snowyjs/master/example/logo.svg" width="300"/>
 
 SnowyJS will help you use the beautiful snowing effect very simply!  
 `example`: https://neulhan.github.io/snowyjs/
