@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FallingJS | example</title>
+
+    <link rel="stylesheet" href="./index.css" />
+    <script src="../dist/index.js" type="module" />
+  </head>
+  <body>
+    <!-- <button id="start">SNOW</button> -->
+    <div class="snow-area"></div>
+    <!-- <div class="controller">
+      <div class="label">text</div>
+      <input type="text" name="text" value="*" bind-value />
+      <div class="label">frequency</div>
+      <input type="number" name="frequency" value="50" bind-value />
+      <div class="label">min-speed</div>
+      <input
+        type="range"
+        name="speed"
+        target="speed0"
+        min="0.5"
+        max="10"
+        step="0.1"
+        value="0.5"
+        bind-value
+      />
+      <div class="label">max-speed</div>
+      <input
+        type="range"
+        name="speed"
+        target="speed1"
+        min="0.5"
+        max="10"
+        step="0.1"
+        value="3"
+        bind-value
+      />
+      <div class="label">min-radius</div>
+      <input
+        type="range"
+        name="radius"
+        target="radius0"
+        min="0.5"
+        max="10"
+        step="0.1"
+        value="0.5"
+        bind-value
+      />
+      <div class="label">max-radius</div>
+      <input
+        type="range"
+        name="radius"
+        target="radius1"
+        min="0.5"
+        max="10"
+        step="0.1"
+        value="3"
+        bind-value
+      />
+      <div class="label">min angle</div>
+      <input
+        type="range"
+        name="angle"
+        target="angle0"
+        min="-1"
+        max="1"
+        step="0.1"
+        value="-0.1"
+        bind-value
+      />
+      <div class="label">max angle</div>
+      <input
+        type="range"
+        name="angle"
+        target="angle1"
+        min="-1"
+        max="1"
+        step="0.1"
+        value="0.1"
+        bind-value
+      />
+      <div class="label">type</div>
+      <select name="type" bind-value>
+        <option value="square">square</option>
+        <option value="circle">circle</option>
+        <option value="text">text</option>
+      </select>
+      <div class="label">colors</div>
+      <input type="text" name="colors" value='["#FFFFFF"]' bind-value />
+    </div> -->
+    <script>
+      const snowjs = new SnowJS({
+        el: "body",
+        frequency: 200,
+        type: "square",
+        speedRange: [1, 3],
+        radiusRange: [1, 3],
+        angleRange: [-0.1, 0.1],
+      });
+      // document.getElementById("start").onclick = () => {
+      //   snowjs.start();
+      // };
+
+      window.onload = () => {
+        snowjs.start();
+        // [...document.querySelectorAll("[bind-value]")].map((item) => {
+        //   item.addEventListener("change", () => {
+        //     const config = { ...snowjs.config };
+        //     const name = item.getAttribute("name");
+        //     if (name === "speed" || name === "radius" || name === "angle") {
+        //       config[`${name}Range`][
+        //         item.getAttribute("target").replace(name, "") * 1
+        //       ] = item.value * 1;
+        //     } else {
+        //       config[name] = item.value;
+        //     }
+        //     snowjs.set(config);
+        //   });
+        // });
+      };
+    </script>
+  </body>
+</html>

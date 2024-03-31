@@ -1,8 +1,8 @@
 {
   "name": "fallingjs",
-  "version": "0.0.8",
+  "version": "0.0.12",
   "description": "FallingJS will help you use the beautiful falling effect(snow) very simply!",
-  "browser": "lib/index.js",
+  "browser": "dist/index.js",
   "scripts": {
     "build": "rm -rf dist && webpack",
     "watch": "webpack -w",
@@ -31,7 +31,7 @@
     "url": "https://github.com/Neulhan/FallingJS/issues"
   },
   "files": [
-    "lib/"
+    "dist/"
   ],
   "dependencies": {
     "fallingrs": "^0.1.5"

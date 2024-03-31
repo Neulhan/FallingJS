@@ -33,6 +33,9 @@ class FallingJS {
     el = "body",
     wasm = false,
   } = {}) {
+    if (document.querySelector(el) === null) {
+      throw new Error(`No element exists for selector "${el}".`);
+    }
     this.scene = !wasm
       ? new _scene_js__WEBPACK_IMPORTED_MODULE_0__["default"]({
           frequency,
@@ -163,7 +166,7 @@ __webpack_require__.r(__webpack_exports__);
     this.objects = [];
     this.elem = document.querySelector(config.el);
     this.elem.appendChild(this.canvas);
-    this.elem.style.pointerEvents = "none";
+    // this.elem.style.pointerEvents = "none";
     this.resize();
     window.addEventListener("resize", this.resize.bind(this));
   }
@@ -1253,13 +1256,7 @@ module.exports = __webpack_require__.v(exports, module.id, "996fea25309be3b6224f
 /******/ 
 /******/ /* webpack/runtime/publicPath */
 /******/ (() => {
-/******/ 	var scriptUrl;
-/******/ 	if (typeof import.meta.url === "string") scriptUrl = import.meta.url
-/******/ 	// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
-/******/ 	// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
-/******/ 	if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
-/******/ 	scriptUrl = scriptUrl.replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
-/******/ 	__webpack_require__.p = scriptUrl;
+/******/ 	__webpack_require__.p = "https://cdn.jsdelivr.net/npm/fallingjs@0.0.12/dist/";
 /******/ })();
 /******/ 
 /************************************************************************/
