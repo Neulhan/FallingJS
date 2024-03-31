@@ -1,13 +1,13 @@
 # FallingJS
 
-<img width="1000" src="https://raw.githubusercontent.com/Neulhan/fallingjs/master/example/logo.svg" width="300"/>
+<img width="1000" src="https://raw.githubusercontent.com/Neulhan/fallingjs/master/examples/logo.svg" width="300"/>
 
 FallingJS will help you use the beautiful snowing effect very simply!  
-`example`: https://neulhan.github.io/fallingjs/
+`examples`: https://neulhan.github.io/fallingjs/
 
 ## Preview
 
-<img src="https://raw.githubusercontent.com/Neulhan/fallingjs/master/example/preview.png" />
+<img src="https://raw.githubusercontent.com/Neulhan/fallingjs/master/examples/preview.png" />
 
 ## Get Started
 
