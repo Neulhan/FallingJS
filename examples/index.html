@@ -4,13 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SnowJS | example</title>
-    <script src="./snowy.js"></script>
     <link rel="stylesheet" href="./index.css" />
   </head>
   <body>
-    <button id="start">SNOW</button>
+    <!-- <button id="start">SNOW</button> -->
     <div class="snow-area"></div>
-    <div class="controller">
+    <!-- <div class="controller">
       <div class="label">text</div>
       <input type="text" name="text" value="*" bind-value />
       <div class="label">frequency</div>
@@ -89,31 +88,39 @@
       </select>
       <div class="label">colors</div>
       <input type="text" name="colors" value='["#FFFFFF"]' bind-value />
-    </div>
-    <script>
+    </div> -->
+    <!-- <script>
       const snowjs = new SnowJS({
-        el: ".snow-area",
+        el: "body",
+        frequency: 200,
+        type: "square",
+        speedRange: [1, 3],
+        radiusRange: [1, 3],
+        angleRange: [-0.1, 0.1],
       });
-      document.getElementById("start").onclick = () => {
-        snowjs.start();
-      };
+      // document.getElementById("start").onclick = () => {
+      //   snowjs.start();
+      // };
 
       window.onload = () => {
-        [...document.querySelectorAll("[bind-value]")].map((item) => {
-          item.addEventListener("change", () => {
-            const config = { ...snowjs.config };
-            const name = item.getAttribute("name");
-            if (name === "speed" || name === "radius" || name === "angle") {
-              config[`${name}Range`][
-                item.getAttribute("target").replace(name, "") * 1
-              ] = item.value * 1;
-            } else {
-              config[name] = item.value;
-            }
-            snowjs.set(config);
-          });
-        });
+        snowjs.start();
+        // [...document.querySelectorAll("[bind-value]")].map((item) => {
+        //   item.addEventListener("change", () => {
+        //     const config = { ...snowjs.config };
+        //     const name = item.getAttribute("name");
+        //     if (name === "speed" || name === "radius" || name === "angle") {
+        //       config[`${name}Range`][
+        //         item.getAttribute("target").replace(name, "") * 1
+        //       ] = item.value * 1;
+        //     } else {
+        //       config[name] = item.value;
+        //     }
+        //     snowjs.set(config);
+        //   });
+        // });
       };
-    </script>
+    </script> -->
+
+    <script type="module" src="./index.js"></script>
   </body>
 </html>

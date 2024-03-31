@@ -150,3 +150,7 @@ typings/
 *.code-workspace
 
 # End of https://www.toptal.com/developers/gitignore/api/macos,node,vscode
+
+# Added by cargo
+
+target/

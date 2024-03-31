@@ -2,30 +2,25 @@ const path = require("path");
 
 module.exports = {
   // enntry file
-  entry: ["@babel/polyfill", "./src/index.js"],
-  // 컴파일 + 번들링된 js 파일이 저장될 경로와 이름 지정
+  entry: ["./lib/index.js"],
   output: {
-    filename: "snowy.js",
+    filename: "index.js",
     path: path.resolve(__dirname, "dist"),
-    libraryTarget: "var",
-    library: "SnowJS",
+    libraryTarget: "module",
   },
   module: {
     rules: [
       {
-        include: [path.resolve(__dirname, "src")],
+        include: [path.resolve(__dirname, "lib")],
         exclude: /node_modules/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-env"],
-            plugins: ["@babel/plugin-proposal-class-properties"],
-          },
-        },
       },
     ],
   },
   devtool: "source-map",
   // https://webpack.js.org/concepts/mode/#mode-development
   mode: "development",
+  experiments: {
+    asyncWebAssembly: true,
+    outputModule: true,
+  },
 };
