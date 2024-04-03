@@ -1,6 +1,6 @@
 {
   "name": "fallingjs",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "FallingJS will help you use the beautiful falling effect(snow) very simply!",
   "browser": "dist/index.js",
   "scripts": {
@@ -34,6 +34,6 @@
     "dist/"
   ],
   "dependencies": {
-    "fallingrs": "^0.1.5"
+    "fallingrs": "^0.1.6"
   }
 }

@@ -20,15 +20,15 @@ fallingrs__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? 
 
 class FallingJS {
   constructor({
-    frequency = 1,
+    frequency = 0.1,
     minRadius = 1,
     maxRadius = 3,
-    minSpeed = 1,
-    maxSpeed = 3,
-    minAngle = -0.1,
-    maxAngle = 0.1,
+    minSpeed = 0.5,
+    maxSpeed = 2,
+    minAngle = -0.2,
+    maxAngle = 0.2,
     colors = ["#FFF"],
-    type_ = "Square",
+    type_ = "Circle",
     text = "*",
     el = "body",
     wasm = false,
@@ -60,7 +60,7 @@ class FallingJS {
             minAngle,
             maxAngle,
             colors,
-            0,
+            fallingrs__WEBPACK_IMPORTED_MODULE_1__.FlakeType[type_],
             text,
             el
           )
@@ -70,13 +70,11 @@ class FallingJS {
   async start() {
     this.scene.resize();
     window.addEventListener("resize", () => {
-      console.log(this.scene);
-      console.log(this.scene.config);
-      console.log(this.scene.stageWidth);
+      this.scene.resize();
     });
 
-    function animate() {
-      this.scene.render();
+    function animate(t) {
+      this.scene.render(t);
       requestAnimationFrame(animate.bind(this));
     }
     requestAnimationFrame(animate.bind(this));
@@ -174,14 +172,25 @@ __webpack_require__.r(__webpack_exports__);
     this.objects = [];
     requestAnimationFrame(this.animate.bind(this));
   }
-  addObjects() {
-    var i = 0;
-    do {
-      i++;
-      this.objects.push(
-        new _object_js__WEBPACK_IMPORTED_MODULE_0__.FallingObject(this.stageWidth, this.stageHeight, this.config)
-      );
-    } while (i <= this.config.frequency);
+  addObjects(t) {
+    if (this.config.frequency >= 1) {
+      var i = 0;
+      do {
+        i++;
+        this.objects.push(
+          new _object_js__WEBPACK_IMPORTED_MODULE_0__.FallingObject(this.stageWidth, this.stageHeight, this.config)
+        );
+      } while (i <= this.config.frequency);
+    } else {
+      if (!this.time) this.time = t;
+      let now = t - this.time;
+      if (now > 1 / this.config.frequency) {
+        this.time = t;
+        this.objects.push(
+          new _object_js__WEBPACK_IMPORTED_MODULE_0__.FallingObject(this.stageWidth, this.stageHeight, this.config)
+        );
+      }
+    }
   }
   resize() {
     this.stageWidth = this.elem.clientWidth;
@@ -193,7 +202,7 @@ __webpack_require__.r(__webpack_exports__);
   render(t) {
     this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
     this.objects = this.objects.filter((obj) => obj.deleted != true);
-    this.addObjects();
+    this.addObjects(t);
     for (let i = 0; i < this.objects.length; i++) {
       if (this.objects[i].update() > this.stageHeight) {
         this.objects[i].deleted = true;
@@ -1256,7 +1265,7 @@ module.exports = __webpack_require__.v(exports, module.id, "996fea25309be3b6224f
 /******/ 
 /******/ /* webpack/runtime/publicPath */
 /******/ (() => {
-/******/ 	__webpack_require__.p = "https://cdn.jsdelivr.net/npm/fallingjs@0.0.12/dist/";
+/******/ 	__webpack_require__.p = "https://cdn.jsdelivr.net/npm/fallingjs@0.0.13/dist/";
 /******/ })();
 /******/ 
 /************************************************************************/
