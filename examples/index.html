@@ -6,18 +6,12 @@
     <title>FallingJS | Example</title>
     <link rel="stylesheet" type="text/css" href="./index.css" />
     <script type="module">
-      import FallingJS from "https://cdn.jsdelivr.net/npm/fallingjs@0.0.12";
+      import FallingJS from "https://cdn.jsdelivr.net/npm/fallingjs@0.0.13";
       // import FallingJS from "../lib/index.js";
 
-      const fallingjs = new FallingJS({
-        el: ".my-el",
-        minAngle: -1.5,
-        maxAngle: 1.5,
-      });
+      const fallingjs = new FallingJS({});
       fallingjs.start();
     </script>
   </head>
-  <body>
-    <div class="my-el"></div>
-  </body>
+  <body></body>
 </html>

@@ -18,22 +18,21 @@ FallingJS will help you use the beautiful snowing effect very simply!
 
 ## Config Props
 
-| Name        | Type            | Description                                      | Required | Default    |
-| ----------- | --------------- | ------------------------------------------------ | -------- | ---------- |
-| `el`        | `String`        | Falling effect area by css selector              | No       | `body`     |
-| `frequency` | `Number`        | Set falling object adding frequency to the area  | No       | `0.1`      |
-| `minSpeed`  | `Number`        | Set min speed of snowflakes                      | No       | `0.5`      |
-| `maxSpeed`  | `Number`        | Set max speed of snowflakes                      | No       | `2`        |
-| `minRadius` | `Number`        | Set min radius of snowflakes                     | No       | `1`        |
-| `maxRadius` | `Number`        | Set max radius of snowflakes                     | No       | `3`        |
-| `minAngle`  | `Number`        | Set min angle of snowflakes (-1 ~ 1 recommended) | No       | `-0.2`     |
-| `maxAngle`  | `Number`        | Set max angle of snowflakes (-1 ~ 1 recommended) | No       | `0.2`      |
-| `colors`    | `Array<String>` | Color palette array for snowflakes               | No       | `["#FFF"]` |
-| `wasm`      | `Boolean`       | Use rust-wasm version rendering                  | No       | `false`    |
+| Name        | Type       | Description                                           | Required | Default    |
+| ----------- | ---------- | ----------------------------------------------------- | -------- | ---------- |
+| `el`        | `string`   | Falling effect area by css selector                   | No       | `body`     |
+| `frequency` | `number`   | Set falling object adding frequency to the area       | No       | `0.1`      |
+| `minSpeed`  | `number`   | Set min speed of falling objects                      | No       | `0.5`      |
+| `maxSpeed`  | `number`   | Set max speed of falling objects                      | No       | `2`        |
+| `minRadius` | `number`   | Set min radius of falling objects                     | No       | `1`        |
+| `maxRadius` | `number`   | Set max radius of falling objects                     | No       | `3`        |
+| `minAngle`  | `number`   | Set min angle of falling objects (-1 ~ 1 recommended) | No       | `-0.2`     |
+| `maxAngle`  | `number`   | Set max angle of falling objects (-1 ~ 1 recommended) | No       | `0.2`      |
+| `type`      | `string`   | Type of falling objects                               | No       | `"Circle"` |
+| `colors`    | `string[]` | Color palette array for falling objects               | No       | `["#FFF"]` |
+| `wasm`      | `boolean`  | Use rust-wasm version rendering                       | No       | `false`    |
 
 ## Future Updates
 
 - Add config props `image` to custom snowflake image
 - Add event hooks
-- Angle range fix
-- Slower frequency in 0 ~ 1
